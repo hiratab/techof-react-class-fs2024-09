@@ -3,14 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Exercise6 from './Exercise6';
-import Exercise7 from './Exercise7';
-import RenderList from './RenderList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RenderList />
+    <App />
   </React.StrictMode>
 );
 
