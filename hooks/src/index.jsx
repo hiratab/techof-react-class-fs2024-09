@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ContextComponent from './ContextComponent';
+import Reduce from './Reduce';
+import Ref from './Ref';
+import Memo from './Memo';
+import Callback from './Callback';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ContextComponent />
+    <Callback />
   </React.StrictMode>
 );
 
