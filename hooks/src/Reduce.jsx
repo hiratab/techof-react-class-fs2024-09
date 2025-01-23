@@ -1,4 +1,4 @@
-import { act, useReducer } from "react";
+import { useReducer } from "react";
 
 function Reduce() {
   const initialState = {
@@ -22,6 +22,7 @@ function Reduce() {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 // const [state, setState] = useState(initialState);
+// setState((previousState) => { return newState })
 
   const decrementAction = () => {
     dispatch({
