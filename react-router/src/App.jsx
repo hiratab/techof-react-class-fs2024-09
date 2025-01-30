@@ -8,6 +8,8 @@ import UserSettingsPage from './components/UserSettingsPage';
 import UserPage from './components/UserPage';
 import PostsPage from './components/PostsPage';
 import PostDetailPage from './components/PostDetailPage';
+import LoginPage from './components/LoginPage';
+import SignUpPage from './components/SignUpPage';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path='/user/:id' element={<UserPage />} />
         <Route path='/posts' element={<PostsPage />} />
         <Route path='/posts/:id' element={<PostDetailPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/sign-up' element={<SignUpPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </Router>
