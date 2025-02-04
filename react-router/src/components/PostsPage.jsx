@@ -1,24 +1,17 @@
-import usePosts from '../hooks/usePosts';
-import NavBar from './NavBar';
 import { Link, useNavigate } from 'react-router-dom';
 
-function Post(props) {
-  return (
-    <div
-      key={props.id}
-    >
-      <Link to={`/posts/${props.id}`}>Title: {props.title}</Link>
-    </div>
-  )
-}
+import usePosts from '../hooks/usePosts';
+import BasePage from './BasePage';
+import Post from './Post';
+
+import styles from  "../styles/posts.module.css";
 
 function PostsPage() {
   const [posts, setPosts] = usePosts();
   const navigate = useNavigate();
 
   return (
-    <>
-      <NavBar />
+    <BasePage>
       <button
         onClick={() => {
           navigate(1);
@@ -26,12 +19,13 @@ function PostsPage() {
       >
         Forward
       </button>
-      <div>
+      <div className={styles.container}>
+        <Post title='Componente diferente' type='breaking-news' />
         {
           posts.map(post => <Post {...post} />)
         }
       </div>
-    </>
+    </BasePage>
   )
 }
 

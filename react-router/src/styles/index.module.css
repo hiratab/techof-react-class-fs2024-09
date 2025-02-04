@@ -1,0 +1,11 @@
+.container {
+  padding: 0.5em;
+}
+
+form div {
+  padding: 0.5em 0 0.5em 0;
+}
+
+label {
+  padding-right: 0.5em;
+}

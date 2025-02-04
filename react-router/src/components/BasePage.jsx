@@ -1,10 +1,14 @@
 import NavBar from "./NavBar";
 
+import styles from "../styles/index.module.css"
+
 function BasePage(props) {
   return (
     <div>
       <NavBar />
-      {props.children}
+      <div className={styles.container}>
+        {props.children}
+      </div>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useState } from "react"
 
+import "../styles/index.module.css"
 import BasePage from "./BasePage";
 
 function SignUpForm(props) {
@@ -69,10 +70,8 @@ function SignUpForm(props) {
 function SignUpPage(props) {
   return (
     <BasePage>
-      <div>
-        <h1>Sign Up</h1>
-        <SignUpForm />
-      </div>
+      <h1>Sign Up</h1>
+      <SignUpForm />
     </BasePage>
   )
 }
