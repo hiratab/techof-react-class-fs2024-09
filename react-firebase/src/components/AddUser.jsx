@@ -2,7 +2,7 @@ import { useState } from 'react';
 import useUsers from '../hooks/useUsers';
 
 function AddUser() {
-  const [users, setUsers, addUser] = useUsers();
+  const { addUser } = useUsers();
   const [newUser, setNewUser] = useState({
     name: '',
     age: 0,

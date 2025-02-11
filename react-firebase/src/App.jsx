@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Users from './components/Users';
 import AddUser from './components/AddUser';
+import Search from './components/Search';
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <div>
       <Users />
       <AddUser />
+      <Search />
     </div>
   );
 }

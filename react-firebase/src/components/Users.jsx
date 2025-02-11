@@ -2,17 +2,18 @@ import useUsers from "../hooks/useUsers";
 import User from './User';
 
 function Users() {
-  const [users, setUsers] = useUsers();
-  console.log('Users', users);
+  const { users, setUsers } = useUsers();
 
   return (
     <div>
       <h1>Users</h1>
-      {
-        users.map(
-          user => <User key={user.id} {...user} />
-        )
-      }
+      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+        {
+          users.map(
+            user => <User key={user.id} {...user} />
+          )
+        }
+      </div>
     </div>
   )
 }
