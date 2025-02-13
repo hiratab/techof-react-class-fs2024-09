@@ -32,6 +32,7 @@ function App() {
     console.log('Image uploaded successfully');
   }
 
+
   return (
     <div>
       {imageUrl === '' ?
