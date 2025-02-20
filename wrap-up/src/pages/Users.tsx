@@ -11,7 +11,7 @@ function Users() {
         users.map(user => {
           return (
             <div key={user.id}>
-              <p>{user.name}</p>
+              <p>{user.firstName}</p>
             </div>
           )
         })
