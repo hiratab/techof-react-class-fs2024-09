@@ -1,6 +1,7 @@
 import {
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth'
 import useUsers, { type UserDocumentType } from './useUsers';
 
@@ -47,7 +48,9 @@ function useAuth() {
     return user
   }
 
-  const logout = async () => {}
+  const logout = async () => {
+    await signOut(firebaseAuth)
+  }
 
   return {
     signUp,

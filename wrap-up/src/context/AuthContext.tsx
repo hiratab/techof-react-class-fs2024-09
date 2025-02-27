@@ -1,5 +1,5 @@
 import { User, onAuthStateChanged } from 'firebase/auth'
-import { createContext, PropsWithChildren, useState } from 'react'
+import { createContext, PropsWithChildren, useEffect, useState } from 'react'
 
 import firebaseAuth from '../config/firebase-auth';
 import useUsers, { type UserDocumentType }  from '../hooks/useUsers';
@@ -54,25 +54,29 @@ export const AuthContextProvider = ({ children }: PropsWithChildren) => {
   })
   const [hasLoggedInUser, setHasLoggedInUser] = useState(false);
 
-  onAuthStateChanged(firebaseAuth, async (_user) => {
-    if (_user) {
-      console.log(`_User sign in:`, _user)
-      const [user] = await queryByAuthId(_user.uid)
-      console.log(`User found:`, user)
-      setCurrentUser(user as UserType)
-      setHasLoggedInUser(true)
-    } else {
-      console.log('No user is signed in')
-      setCurrentUser({
-        firstName: '',
-        lastName: '',
-        email: '',
-        auth_id: '',
-        accessToken: '',
-      })
-      setHasLoggedInUser(false)
-    }
-  })
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(firebaseAuth, async (_user) => {
+      if (_user) {
+        console.log(`_User sign in:`, _user)
+        const [user] = await queryByAuthId(_user.uid)
+        console.log(`User found:`, user)
+        setCurrentUser(user as UserType)
+        setHasLoggedInUser(true)
+      } else {
+        console.log('No user is signed in')
+        setCurrentUser({
+          firstName: '',
+          lastName: '',
+          email: '',
+          auth_id: '',
+          accessToken: '',
+        })
+        setHasLoggedInUser(false)
+      }
+    })
+
+    return () => unsubscribe()
+  }, [])
 
   return (
     <AuthContext.Provider
